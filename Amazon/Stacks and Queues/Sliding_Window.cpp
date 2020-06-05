@@ -4,18 +4,13 @@
 
 -> Maintain a deque such that greatest elt is always at the front, by removing extra elements(smaller than current element) both frm front and back
 
-
 */
 
 /* LESSON
 
 -> Its a famous trick to maintain the maximum element in a queue
 
-
-
 */
-
-
 
 vector<int> Solution::slidingMaximum(const vector<int> &A, int B)
 {
