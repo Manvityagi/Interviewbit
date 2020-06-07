@@ -1,8 +1,18 @@
+
+/* APPROACH
+
+->Directly concatenate and decide, whats better
+
+
+*/
+
+/* LESSON
+
+
+*/
 bool comp(const string &a, const string &b)
 {
-    if (a + b < b + a)
-        return false;
-    return true;
+      return a + b > b + a;
 }
 string Solution::largestNumber(const vector<int> &nums)
 {
