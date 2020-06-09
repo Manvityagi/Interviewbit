@@ -5,7 +5,12 @@ Time: O(nlogn)
 Space : O(1)
 TLE
 
--> Second
+-> Second 
+Time: O(n)
+Space : O(1)
+First positive missing integer will lien in range [1,n] for sure ,
+so we can fill the ith with index with (i+1)th number
+and the first number than number which failed to satisfy this condition is the first missing positive integer 
 
 
 */

@@ -1,7 +1,34 @@
 /* APPROACH
 
--> Sorting se to very easy
--> O(n) ke liye, find the first index from beginning and end which is causing problem, and from the end too, find the last number causing problem
+----------------------------------------------------------------------------------------------------
+
+APPROACH 1 -> Sorting 
+Time - O(nlogn)
+Space - O(n)
+
+----------------------------------------------------------------------------------------------------
+
+APPROACH 2 -> Using stacks 
+Time - O(n)
+Space - O(1)
+
+We have to basically find the deepest element from left and right which is at the wrong place
+and what is its right place is actually the left/right depth we are looking for
+Let's say - 1,4,7,2,3,6,8 
+starting from left, each nums[i] should be greater than st.top() as we maintain the stack in an ascending order,
+if that is not the case, we go deep in the stack and find the right place for the element violating our order,
+and keep updating that minimum depth 
+
+Similarly for right
+
+
+----------------------------------------------------------------------------------------------------
+
+APPROACH 3 -> 
+Time - O(n)
+Space - O(1)
+
+find the first index from beginning and end which is causing problem, and from the end too, find the last number causing problem
      ________left_________right_______
      sorted       unsorted      sorted
                      ||
@@ -12,6 +39,8 @@
                 If this is not the case, find the correct position of min_range 
                 and max_range in A[0...left] && A[right....n-1] 
 
+
+
 */
 
 /* LESSON
@@ -19,7 +48,9 @@
 
 */
 
-// O(NlogN)
+
+
+// APPROACH 1 -> Sorting
 vector<int> Solution::subUnsort(vector<int> &A)
 {
     vector<int> temp = A;
@@ -51,8 +82,50 @@ vector<int> Solution::subUnsort(vector<int> &A)
     return {left, right};
 }
 
-//O(n)
 
+
+
+
+
+// APPROACH 2 -> Stacks
+vector<int> Solution::subUnsort(vector<int> &A)
+{
+    stack<int> st; //storing indices
+    int n = nums.size();
+
+    int left_depth = n; //as it can be max n , (INT_MAX was also fine)
+    for (int i = 0; i < n; i++)
+    {
+        while (!st.empty() && nums[i] < nums[st.top()])
+        {
+            left_depth = min(left_depth, st.top());
+            st.pop();
+        }
+
+        st.push(i);
+    }
+
+    if (left_depth == n)
+        return {-1};
+
+    int right_depth = 0;
+    for (int i = n - 1; i >= 0; i--)
+    {
+        while (!st.empty() && nums[i] > nums[st.top()])
+        {
+            right_depth = max(right_depth, st.top());
+            st.pop();
+        }
+        st.push(i);
+    }
+
+    return {left_depth, right_depth};
+}
+
+
+
+
+// APPROACH 3 -> O(n)
 vector<int> Solution::subUnsort(vector<int> &A)
 {
     int n = A.size();
