@@ -43,7 +43,7 @@ vector<int> Solution::nextPermutation(vector<int> &nums)
     else
     {
         for (l = n - 1; l > k; l--)
-            if (nums[l] > nums[k])
+            if (nums[k] < nums[l])
                 break;
         swap(nums[k], nums[l]);
         sort(nums.begin() + k + 1, nums.end());
