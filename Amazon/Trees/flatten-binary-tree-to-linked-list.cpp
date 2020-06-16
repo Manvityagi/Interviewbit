@@ -4,14 +4,16 @@
 If at each step, we maintain an updated parent,  we just need to do recursive calls
 
 (2) ITERATIVE SOLUTION
+    node X ke left me jo rakha hai, usey itha ke node ke right me rakhna hai, 
+    aur jo left se subtree uthaya tha, uske rightmost me node X ka orignal right daalna hai, 
+    ye hi process har right node ke liye karna hai, 
+
+
 
 
 */
 
-
-
 // --------------------------------RECURSIVE SOLUTION------------------------------------------//
-
 
 TreeNode *parent = nullptr;
 void dfs(TreeNode *root)
@@ -35,7 +37,6 @@ TreeNode *Solution::flatten(TreeNode *A)
     return A;
 }
 
-
 // --------------------------------ITERATIVE SOLUTION------------------------------------------//
 
 TreeNode *Solution::flatten(TreeNode *root)
@@ -47,13 +48,14 @@ TreeNode *Solution::flatten(TreeNode *root)
         if (iter)
         {
             while (iter->right)
-            {
                 iter = iter->right;
-            }
+
             iter->right = now->right;
             now->right = now->left;
             now->left = NULL;
         }
         now = now->right;
     }
+
+    return root;
 }
