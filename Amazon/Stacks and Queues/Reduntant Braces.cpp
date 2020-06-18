@@ -1,5 +1,5 @@
 /* APPROACH
--> If onlly 1 or 2 things are pooped out, we have reduntant braces
+-> If only 1 or 2 things are popped out, we have reduntant braces
 */
 
 /* LESSON
