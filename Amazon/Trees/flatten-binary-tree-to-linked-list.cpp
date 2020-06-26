@@ -4,7 +4,7 @@
 If at each step, we maintain an updated parent,  we just need to do recursive calls
 
 (2) ITERATIVE SOLUTION
-    node X ke left me jo rakha hai, usey itha ke node ke right me rakhna hai, 
+    node X ke left me jo rakha hai, usey utha ke node ke right me rakhna hai, 
     aur jo left se subtree uthaya tha, uske rightmost me node X ka orignal right daalna hai, 
     ye hi process har right node ke liye karna hai, 
 
