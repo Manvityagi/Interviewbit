@@ -1,4 +1,4 @@
-// O(1) solution - strore the sum of all the rows and cols in last row and col, if taht sum != len(row) || len(col) , replace everything with 0
+// O(1) solution - strore the sum of all the rows and cols in last row and col, if that sum != len(row) || len(col) , replace everything with 0
 //edge case - last row/col = 0
 
 void setZeroes(vector<vector<int>> &A)

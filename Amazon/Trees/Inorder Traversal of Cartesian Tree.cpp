@@ -1,7 +1,7 @@
 
 /* APPROACH
 
-(1) Recursion - O(n^2) time, O(n) space
+(1) Recursion - O(nlogn) time, O(n) space
 (2) Stack - O(n) time, O(n) space
 
 
