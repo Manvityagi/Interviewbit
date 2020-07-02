@@ -1,6 +1,6 @@
 /* APPROACH
 
--> Two pass is simple, clculating length
+-> Two pass is simple, calculating length
 -> One pass is genius approach : Have 2 pointers, slow and fast, move fast by n+1 initially, 
    so as to have a gap of n nodes between slow and fast, so when, fast reaches end, 
    slow will be at the nth node from end
